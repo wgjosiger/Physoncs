@@ -13,8 +13,8 @@ public class Main {
         System.out.print("Welcome to the program! Please select a sub-program:\n1. Select a physics program\n2. Exit\n>");
         int in = scan.nextInt();
         if (in == 2) {
-            System.exit(0);
-        } else if (in == 1) {
+                System.exit(0);
+            } else if (in == 1) {
             Utils.clearScreen();
             physicsProgram(scan);
         }

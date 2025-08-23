@@ -14,10 +14,6 @@ public class Kinematics {
             Utils.clearScreen();
             TwoDMotion(scan);
         } else if (choice == 3) {
-            Utils.clearScreen();
-            System.out.println("You have selected Projectile Motion.");
-            System.out.println("This sub-module covers the motion of objects that are launched into the air and are subject to gravity.");
-        } else if (choice == 4) {
             System.out.println("Returning to Classical Mechanics menu.");
             main.Classical.ClassicalMechanics cm = new main.Classical.ClassicalMechanics();
             Utils.clearScreen();
@@ -122,6 +118,22 @@ public void OneDMotion(Scanner scan) {
                 System.out.println("This topic covers projectile motion, which is the motion of an object thrown or projected into the air, subject to only the acceleration of gravity.");
                 System.out.println("Key Equations:\nHorizontal Motion: x = v_initial * cos(θ) * t\nVertical Motion: y = v_initial * sin(θ) * t - 0.5 * g * t²\nWhere g is the acceleration due to gravity (approximately 9.81 m/s²).");
                 System.out.println("Time of Flight: T = (2 * v_initial * sin(θ)) / g\nMaximum Height: H = (v_initial² * sin²(θ)) / (2 * g)\nRange: R = (v_initial² * sin(2θ)) / g");
+                System.out.println("Where:\nv_initial = initial velocity\nθ = launch angle\nt = time\nx = horizontal position\ny = vertical position");
+                System.out.println("Let's do an example. Please enter the initial velocity (v_initial) in m/s and the launch angle (θ) in degrees:");
+                double v_initial = scan.nextDouble();
+                double theta = Math.toRadians(scan.nextDouble());
+                double g = 9.81; // acceleration due to gravity in m/s²
+                double time_of_flight = (2 * v_initial * Math.sin(theta)) / g;
+                double max_height = (v_initial * v_initial * Math.sin(theta) * Math.sin(theta)) / (2 * g);
+                double range = (v_initial * v_initial * Math.sin(2 * theta)) / g;
+                System.out.println("The time of flight (T) is: " + time_of_flight + " seconds");
+                System.out.println("The maximum height (H) is: " + max_height + " meters");
+                System.out.println("The range (R) is: " + range + " meters");
+                System.out.println("Please enter any key to return to the Motion in Two-Dimensions menu.");
+                scan.next();
+                System.out.println("Returning to Motion in Two Dimensions menu.");
+                Utils.clearScreen();
+                TwoDMotion(scan);
             } else if (subChoice == 3) {
                 System.out.println("This topic covers uniform circular motion, which is the motion of an object moving at a constant speed along a circular path.");
                 System.out.println("Key Concepts:\nCentripetal Acceleration: a_c = v² / r\nCentripetal Force: F_c = m * a_c = m * v² / r\nWhere v is the tangential speed, r is the radius of the circle, and m is the mass of the object.");
