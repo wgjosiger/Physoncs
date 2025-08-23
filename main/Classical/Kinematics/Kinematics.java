@@ -5,7 +5,7 @@ import main.Utils.Utils;
 
 public class Kinematics {
     public void showInfo(Scanner scan) {
-        System.out.print("Welcome to the Kinematics module. Please select a sub-module:\n1. Motion in One Dimension\n2. Motion in Two Dimensions\n3. Projectile Motion\n4. Back\n>");
+        System.out.print("Welcome to the Kinematics module. Please select a sub-module:\n1. Motion in One Dimension\n2. Motion in Two Dimensions\n3. Back\n>");
         int choice = scan.nextInt();
         if (choice == 1) {
             Utils.clearScreen();
@@ -47,11 +47,10 @@ public void OneDMotion(Scanner scan) {
                 System.out.println("Returning to Motion in One Dimension menu.");
                 Utils.clearScreen();
                 OneDMotion(scan);
-
                 //End displacement, velocity, speed
             } else if (subChoice == 2) {
-                Utils.clearScreen();
                 //Begin acceleration
+                Utils.clearScreen();
                 System.out.println("This topic covers the concept of acceleration and its relation to velocity and time.");
                 System.out.println("Acceleration is a vector quantity that represents the rate of change of velocity with respect to time. It can be positive (speeding up) or negative (slowing down).");
                 System.out.println("Formulas:\nAcceleration (a) = delta v / delta t\nWhere deltav is the change in velocity and delta t is the time interval.");
@@ -67,17 +66,42 @@ public void OneDMotion(Scanner scan) {
                 double delta_v = v_final - v_initial;
                 double acceleration = delta_v / delta_t;
                 System.out.println("The acceleration (a) is: " + acceleration + " m/s²");
-                //End acceleration
                 System.out.println("Please enter any key to return to the Motion in One-Dimension menu.");
                 scan.next();
                 System.out.println("Returning to Motion in One Dimension menu.");
                 Utils.clearScreen();
                 OneDMotion(scan);
+                //End acceleration
             } else if (subChoice == 3) {
+                //Begin motion with constant acceleration
                 Utils.clearScreen();
                 System.out.println("This topic covers motion with constant acceleration, including free fall.");
                 System.out.println("Formulas:\nv = v_initial + a * t\nx = x_initial + v_initial * t + 0.5 * a * t^2\nv^2 = v_initial^2 + 2 * a * (x - x_initial)");
                 System.out.println("Where:\nv = final velocity\na = acceleration\nt = time\nx = final position\nx_initial = initial position\nv_initial = initial velocity");
+                System.out.println("For example, if a car accelerates from rest (v_initial = 0 m/s) at a constant rate of 3 m/s² for 4 seconds, we can calculate its final velocity and displacement as follows:");
+                double v_initial = 0; // initial velocity in m/s
+                double a = 3; // acceleration in m/s²   
+                double t = 4; // time in seconds
+                double v_final = v_initial + a * t;
+                double x_initial = 0; // initial position in meters
+                double x_final = x_initial + v_initial * t + 0.5 * a * t * t;
+                System.out.println("The final velocity (v) is: " + v_final + " m/s");
+                System.out.println("The displacement (x - x_initial) is: " + (x_final - x_initial) + " meters");
+                System.out.println("Let's do another example. Please enter the initial velocity (v_initial), acceleration (a), and time (t) of the object:");
+                v_initial = scan.nextDouble();
+                a = scan.nextDouble(); 
+                t = scan.nextDouble();
+                v_final = v_initial + a * t;
+                x_initial = 0; // initial position in meters
+                x_final = x_initial + v_initial * t + 0.5 * a * t * t;
+                System.out.println("The final velocity (v) is: " + v_final + " m/s");
+                System.out.println("The displacement (x - x_initial) is: " + (x_final - x_initial) + " meters");
+                System.out.println("Please enter any key to return to the Motion in One-Dimension menu.");
+                scan.next();
+                System.out.println("Returning to Motion in One Dimension menu.");
+                Utils.clearScreen();
+                OneDMotion(scan);
+                //End motion with constant acceleration
             } else if (subChoice == 4){
                 System.out.println("Returning to Kinematics Module menu.");
                 Utils.clearScreen();
@@ -90,12 +114,14 @@ public void OneDMotion(Scanner scan) {
             System.out.println("Please select a specific topic:\n1. Vectors and Vector Addition\n2. Projectile Motion in 2D\n3. Uniform Circular Motion\n4. Back\n>");
             int subChoice = scan.nextInt();
             if (subChoice == 1) {
+                Utils.clearScreen();
+                //Begin vectors and vector addition
                 System.out.println("This topic covers the representation and addition of vectors in two dimensions.");
-                System.out.println("Vectors can be represented in component form (i, j) or in magnitude and direction (r, θ).");
+                System.out.println("Vectors can be represented in component form (i, j) or in magnitude and direction (r, theta).");
                 System.out.println("Vector Addition:\nIf A = A_x i + A_y j and B = B_x i + B_y j, then the resultant vector R = (A_x + B_x) i + (A_y + B_y) j.");
                 System.out.println("Magnitude of R: |R| = sqrt((A_x + B_x)² + (A_y + B_y)²)");
-                System.out.println("Direction of R: θ_R = tan^(-1)((A_y + B_y)/(A_x + B_x))");
-                System.out.println("Where : A_x and A_y are the components of vector A, and B_x and B_y are the components of vector B\nR is the resultant vector, and θ_R is the angle of R with respect to the x-axis.");
+                System.out.println("Direction of R: theta_R = tan^(-1)((A_y + B_y)/(A_x + B_x))");
+                System.out.println("Where : A_x and A_y are the components of vector A, and B_x and B_y are the components of vector B\nR is the resultant vector, and theta_R is the angle of R with respect to the x-axis.");
                 System.out.println("Let's do an example. Please enter the components of vector A (A_x and A_y):");
                 double A_x = scan.nextDouble();
                 double A_y = scan.nextDouble();
@@ -114,17 +140,20 @@ public void OneDMotion(Scanner scan) {
                 System.out.println("Returning to Motion in Two Dimensions menu.");
                 Utils.clearScreen();
                 TwoDMotion(scan);
+                //End vectors and vector addition
             } else if (subChoice == 2) {
+                Utils.clearScreen();
+                //Begin projectile motion in 2D
                 System.out.println("This topic covers projectile motion, which is the motion of an object thrown or projected into the air, subject to only the acceleration of gravity.");
-                System.out.println("Key Equations:\nHorizontal Motion: x = v_initial * cos(θ) * t\nVertical Motion: y = v_initial * sin(θ) * t - 0.5 * g * t²\nWhere g is the acceleration due to gravity (approximately 9.81 m/s²).");
-                System.out.println("Time of Flight: T = (2 * v_initial * sin(θ)) / g\nMaximum Height: H = (v_initial² * sin²(θ)) / (2 * g)\nRange: R = (v_initial² * sin(2θ)) / g");
-                System.out.println("Where:\nv_initial = initial velocity\nθ = launch angle\nt = time\nx = horizontal position\ny = vertical position");
-                System.out.println("Let's do an example. Please enter the initial velocity (v_initial) in m/s and the launch angle (θ) in degrees:");
+                System.out.println("Key Equations:\nHorizontal Motion: x = v_initial * cos(theta) * t\nVertical Motion: y = v_initial * sin(theta) * t - 0.5 * g * t²\nWhere g is the acceleration due to gravity (approximately 9.81 m/s²).");
+                System.out.println("Time of Flight: T = (2 * v_initial * sin(theta)) / g\nMaximum Height: H = (v_initial² * sin²(theta)) / (2 * g)\nRange: R = (v_initial² * sin(2theta)) / g");
+                System.out.println("Where:\nv_initial = initial velocity\ntheta = launch angle\nt = time\nx = horizontal position\ny = vertical position");
+                System.out.println("Let's do an example. Please enter the initial velocity (v_initial) in m/s and the launch angle (theta) in degrees:");
                 double v_initial = scan.nextDouble();
                 double theta = Math.toRadians(scan.nextDouble());
                 double g = 9.81; // acceleration due to gravity in m/s²
                 double time_of_flight = (2 * v_initial * Math.sin(theta)) / g;
-                double max_height = (v_initial * v_initial * Math.sin(theta) * Math.sin(theta)) / (2 * g);
+                double max_height = (v_initial * v_initial * Math.pow(Math.sin(theta),2)) / (2 * g);
                 double range = (v_initial * v_initial * Math.sin(2 * theta)) / g;
                 System.out.println("The time of flight (T) is: " + time_of_flight + " seconds");
                 System.out.println("The maximum height (H) is: " + max_height + " meters");
@@ -134,7 +163,10 @@ public void OneDMotion(Scanner scan) {
                 System.out.println("Returning to Motion in Two Dimensions menu.");
                 Utils.clearScreen();
                 TwoDMotion(scan);
+                //End projectile motion in 2D
             } else if (subChoice == 3) {
+                Utils.clearScreen();
+                //Begin uniform circular motion
                 System.out.println("This topic covers uniform circular motion, which is the motion of an object moving at a constant speed along a circular path.");
                 System.out.println("Key Concepts:\nCentripetal Acceleration: a_c = v² / r\nCentripetal Force: F_c = m * a_c = m * v² / r\nWhere v is the tangential speed, r is the radius of the circle, and m is the mass of the object.");
             } else if (subChoice == 4){
