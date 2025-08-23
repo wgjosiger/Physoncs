@@ -100,6 +100,24 @@ public void OneDMotion(Scanner scan) {
                 System.out.println("Magnitude of R: |R| = sqrt((A_x + B_x)² + (A_y + B_y)²)");
                 System.out.println("Direction of R: θ_R = tan^(-1)((A_y + B_y)/(A_x + B_x))");
                 System.out.println("Where : A_x and A_y are the components of vector A, and B_x and B_y are the components of vector B\nR is the resultant vector, and θ_R is the angle of R with respect to the x-axis.");
+                System.out.println("Let's do an example. Please enter the components of vector A (A_x and A_y):");
+                double A_x = scan.nextDouble();
+                double A_y = scan.nextDouble();
+                System.out.println("Please enter the components of vector B (B_x and B_y):");
+                double B_x = scan.nextDouble();
+                double B_y = scan.nextDouble();
+                double R_x = A_x + B_x;
+                double R_y = A_y + B_y;
+                double R_magnitude = Math.sqrt(R_x * R_x + R_y * R_y);
+                double R_angle = Math.toDegrees(Math.atan2(R_y, R_x));
+                System.out.println("The resultant vector R has components: (" + R_x + ", " + R_y + ")");
+                System.out.println("The magnitude of R is: " + R_magnitude);
+                System.out.println("The direction of R is: " + R_angle + " degrees from the x-axis.");
+                System.out.println("Please enter any key to return to the Motion in Two-Dimensions menu.");
+                scan.next();
+                System.out.println("Returning to Motion in Two Dimensions menu.");
+                Utils.clearScreen();
+                TwoDMotion(scan);
             } else if (subChoice == 2) {
                 System.out.println("This topic covers projectile motion, which is the motion of an object thrown or projected into the air, subject to only the acceleration of gravity.");
                 System.out.println("Key Equations:\nHorizontal Motion: x = v_initial * cos(θ) * t\nVertical Motion: y = v_initial * sin(θ) * t - 0.5 * g * t²\nWhere g is the acceleration due to gravity (approximately 9.81 m/s²).");
