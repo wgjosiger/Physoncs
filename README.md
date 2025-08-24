@@ -30,4 +30,4 @@ More Fields are planned for in the future, E.G. Math
 - `main/Copyright.java` - Copyright notice
 
 ## License
-This project is © 2025 Lemon J. All rights reserved. For educational use only.
+This project is © 2025 Lemon J (WGJosiger@gmail.com). All rights reserved. For educational use only.
