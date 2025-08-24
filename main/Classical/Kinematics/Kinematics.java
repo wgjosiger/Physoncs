@@ -169,6 +169,17 @@ public void OneDMotion(Scanner scan) {
                 //Begin uniform circular motion
                 System.out.println("This topic covers uniform circular motion, which is the motion of an object moving at a constant speed along a circular path.");
                 System.out.println("Key Concepts:\nCentripetal Acceleration: a_c = v² / r\nCentripetal Force: F_c = m * a_c = m * v² / r\nWhere v is the tangential speed, r is the radius of the circle, and m is the mass of the object.");
+                System.out.println("Let's do an example. Please enter the tangential speed (v) in m/s and the radius (r) in meters of the circular path:");
+                double v = scan.nextDouble();
+                double r = scan.nextDouble();
+                double a_c = (v * v) / r;
+                System.out.println("The centripetal acceleration (a_c) is: " + a_c + " m/s²");
+                System.out.println("Please enter any key to return to the Motion in Two-Dimensions menu.");
+                scan.next();
+                System.out.println("Returning to Motion in Two Dimensions menu.");
+                Utils.clearScreen();
+                TwoDMotion(scan);
+                //End uniform circular motion
             } else if (subChoice == 4){
                 System.out.println("Returning to Kinematics Module menu.");
                 Utils.clearScreen();
