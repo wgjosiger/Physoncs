@@ -31,3 +31,4 @@ More Fields are planned for in the future, E.G. Math
 
 ## License
 This project is © 2025 Lemon J (WGJosiger@gmail.com). All rights reserved. For educational use only.
+Please note that th reason this is CC-BY-NC-ND is because I am *Incredibly* paranoid about people stealing this code. This is the internet after all.
