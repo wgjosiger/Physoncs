@@ -5,7 +5,7 @@ import main.Utils.Utils;
 
 public class Kinematics {
     public void showInfo(Scanner scan) {
-        System.out.print("Welcome to the Kinematics module. Please select a sub-module:\n1. Motion in One Dimension\n2. Motion in Two Dimensions\n3. Back\n>");
+        System.out.print("Welcome to the Kinematics module. Please select a sub-module:\n1. Motion in One Dimension\n2. Motion in Two Dimensions\n3. Motion in Three Dimension\n4. Back\n>");
         int choice = scan.nextInt();
         if (choice == 1) {
             Utils.clearScreen();
@@ -13,7 +13,9 @@ public class Kinematics {
         } else if (choice == 2) {
             Utils.clearScreen();
             TwoDMotion(scan);
-        } else if (choice == 3) {
+        }else if(choice ==3){
+            ThreeDMotion(scan);
+        } else if (choice == 4) {
             System.out.println("Returning to Classical Mechanics menu.");
             main.Classical.ClassicalMechanics cm = new main.Classical.ClassicalMechanics();
             Utils.clearScreen();
@@ -190,4 +192,42 @@ public void OneDMotion(Scanner scan) {
             Utils.clearScreen();
             showInfo(scan);
         }
+        public static void ThreeDMotion(Scanner scan){
+            System.out.println("This topic covers motion in three dimensions, including vectors, projectile motion in 3D, and uniform circular motion in 3D.");
+            System.out.println("Please select a specific topic:\n1. Vectors and Vector Addition\n2. Projectile Motion in 3D\n3. Uniform Circular Motion\n4. Back\n>");
+            int subChoice = scan.nextInt();
+            if (subChoice == 1) {
+                Utils.clearScreen();
+                //Begin vectors and vector addition in 3D
+                System.out.println("This topic covers the representation and addition of vectors in three dimensions.");
+                System.out.println("Vectors can be represented in component form (i, j, k) or in magnitude and direction (r, theta, phi).");
+                System.out.println("Vector Addition:\nIf A = A_x i + A_y j + A_z k and B = B_x i + B_y j + B_z k, then the resultant vector R = (A_x + B_x) i + (A_y + B_y) j + (A_z + B_z) k.");
+                System.out.println("Magnitude of R: |R| = sqrt((A_x + B_x)² + (A_y + B_y)² + (A_z + B_z)²)");
+                System.out.println("Direction of R: theta_R = tan^(-1)(sqrt((A_y + B_y)² + (A_z + B_z)²)/(A_x + B_x)), phi_R = cos^(-1)((A_z + B_z)/|R|)");
+                System.out.println("Where : A_x, A_y, A_z are the components of vector A, and B_x, B_y, B_z are the components of vector B\nR is the resultant vector, theta_R is the angle of R with respect to the x-axis, and phi_R is the angle with respect to the z-axis.");
+                System.out.println("Let's do an example. Please enter the components of vector A (A_x, A_y, A_z):");
+                double A_x = scan.nextDouble();
+                double A_y = scan.nextDouble();
+                double A_z = scan.nextDouble();
+                System.out.println("Please enter the components of vector B (B_x, B_y, B_z):");
+                double B_x = scan.nextDouble();
+                double B_y = scan.nextDouble();
+                double B_z = scan.nextDouble();
+                double R_x = A_x + B_x;
+                double R_y = A_y + B_y;
+                double R_z = A_z + B_z;
+                double R_magnitude = Math.sqrt(R_x * R_x + R_y * R_y + R_z * R_z);
+                double R_angle_theta = Math.toDegrees(Math.atan2(Math.sqrt(R_y * R_y + R_z * R_z), R_x));
+                double R_angle_phi = Math.toDegrees(Math.acos(R_z / R_magnitude)); 
+                System.out.println("The resultant vector R has components: (" + R_x + ", " + R_y + ", " + R_z + ")");
+                System.out.println("The magnitude of R is: " + R_magnitude);
+                System.out.println("The direction of R is: theta = " + R_angle_theta + " degrees from the x-axis, phi = " + R_angle_phi + " degrees from the z-axis.");
+                System.out.println("Please enter any key to return to the Motion in Three-Dimensions menu.");
+                scan.next();
+                System.out.println("Returning to Motion in Three Dimensions menu.");
+                Utils.clearScreen();
+                ThreeDMotion(scan);
+                //End vectors and vector addition in 3D
+            } else if (subChoice == 2) {}
     }
+}
